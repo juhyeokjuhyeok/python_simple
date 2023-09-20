@@ -68,3 +68,70 @@ print("="*100)
 print(msg[18:23])
 print(msg[-4:])
 print("="*100)
+
+#4. 문자열 함수
+str = "Hello World"
+
+print("="*100)
+# 4-1. len() : 문자열 길이 계산
+print(len(str))
+
+print("="*100)
+# 4-2. upper() and lower() : 대소문자 변경
+#   ID = "ChoLong02" -> "cholong02".lower()
+# - 데이터 전처리 -> 1A, 1a -> upper() 1A통일
+print(str.upper())
+print(str.lower())
+
+print("="*100)
+# 4-3. replace() 문자열 내의 특정문자 치환
+print(str.replace("H", "J"))
+
+print("="*100)
+# 4-4. split() : 구분자를 기준으로 문자열 분할(default: 공백)
+b = "hello world what a nice weather"
+print(b.split())
+print(b.split("w"))
+
+print("="*100)
+# 4-5. strip(): 문자열의 좌우공백 제거
+id = "          python1004      "
+print(id)
+print(id.strip())
+
+#id = "ChoLong1004      "
+#id.lower() "   cholong1004  "
+print(id.lower().strip()) # "cholong1004"
+
+print("="*100)
+# 4-6. find() and rfind() : 문자열 내부의 특정 문자 위치 인덱스 출력
+print(str.find("o")) # hell"o" world
+print(str.rfind("o")) # hello w"o"rld
+print(str.find("world")) # 못찾으면 -1
+print(str.find("World")) # 단어의 첫글자 인덱스
+print(str.rfind("World"))
+
+print("="*100)
+# 4-7. in() : 특정 무자열 포함하는지 확인(True, False 출력)
+print("Hi" in "Hi Python")
+
+print("="*100)
+#문제
+# "abc123@gmail.com"
+# "ter@naver.com"
+id = "cherry1004@gmail.com"
+idx = id.find("@")
+#val = id[:10]
+val = id[:idx]
+print(val) # cherry1004 출력
+
+#문제2
+# "www.google.com"
+# "www.daum.net"
+url = "www.naver.com"
+start = url.find(".") +1
+end = url.rfind(".")
+val = url[start:end]
+print(val) # 출력: google or daum or naver
+
+
