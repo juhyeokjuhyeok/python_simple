@@ -4,7 +4,7 @@
 # - 작성자: juhyeokjuhyeok
 # - 내용: 가페 음료를 주문 및 판매하는 콘솔 프로그램
 
-from service_kiosk import user_choice
+from service_kiosk import user_choice, show_menu
 
 # 메뉴와 가격표
 # - Dict Type(key, value), 인덱스 없음 -> 데이터베이스 대체
@@ -29,8 +29,7 @@ while True:
     print("■■ == 조선별다방 == ")
     print("■■ == ver 1.2")
     print("■■ 메인 메뉴")
-    for i, menu in enumerate(main_name.values()):
-        print(f"■□ {i+1}.{menu}")
+    show_menu(main_name)
 
     # 2. 메인메뉴 선택
     choice = user_choice(len(main_name), "main")
@@ -39,8 +38,7 @@ while True:
     # 3.서브 메뉴 출력
     if choice == 1: #커피
         print("●● 커피(Coffee)")
-        for i in range(len(coffee_name)):
-            print(f"●○  {i+1}.({coffee_name[i+1]})({coffee_price[i+1]}원)")
+        show_menu(coffee_name)
             # 4. 서브메뉴 선택
         choice = user_choice(len(coffee_name))
         # 5. 선택 메뉴 주문 목록 저장
@@ -51,8 +49,7 @@ while True:
 
     elif choice == 2: #음료
         print("●● 드링크(Drink)")
-        for key, value in drink_name.items():
-            print(f"●○ {key}.{value}({drink_price[key]}원)")
+        show_menu(drink_name)
         choice = user_choice(len(drink_name))
 
         menu_save.append(drink_name[choice])
@@ -60,8 +57,7 @@ while True:
 
     elif choice == 3: #빵
         print("빵(Bakery)")
-        for i, value in enumerate(bakery_name.values()):
-            print(f"●○ {i+1}.{value}({bakery_price[i+1]}원)")
+        show_menu(bakery_name)
         choice = user_choice(len(bakery_name))
 
         menu_save.append(bakery_name[choice])
@@ -103,4 +99,7 @@ while True:
             total_price += price
         print(f"MSG: 주문하신 메뉴는 {len(menu_save)}개로 총 결제금액은 {total_price}원입니다.")
         print("이용해주셔서 감사합니다.")
+
+
+
 
