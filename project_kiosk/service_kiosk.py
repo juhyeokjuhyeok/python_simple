@@ -17,4 +17,4 @@ def user_choice(max_cnt, menu_type=""):
 
 # 메뉴 출력 기능
 
-#def show_menu
+

@@ -15,8 +15,7 @@ while True:
 
     if pm == "+":
         result = sum_value(num1, num2)
-    elif pm == "_":
+    elif pm == "-":
         result = sub_value(num1, num2)
 
     print(f"계산: {num1} {pm} {num2} = {result}")
-    break
